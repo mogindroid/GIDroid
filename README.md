@@ -39,7 +39,7 @@ gradle build
 This will build and test GinDroid, and also create a fat jar at `build/gin.jar` containing all required dependencies.
 
 
-## Running GindDroid on an app
+## Running GinDroid on an app
 
 You can run GinDroid on an app by doing the following:
 
