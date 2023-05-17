@@ -340,14 +340,13 @@ public class FrozenGame extends GameScreen {
   }
 
   void addScrollRow() {
-      byte[] newRow = levelManager.getNewRow(bubblePlay);
+    byte[] newRow = levelManager.getNewRow(bubblePlay);
     int colIdx = (levelManager.getRowOffset() + 1) % 2;
     int rowMove = (int) compressor.getMoveDown();
     for (int column = 0; column < LevelManager.NUM_COLS; column++) {
       scrolling[column] = null;
     }
     for (int column = colIdx; column < LevelManager.NUM_COLS; column++) {
-      if (newRow[column] != -1) {
         int color = newRow[column];
         BubbleSprite tempBubble = new BubbleSprite(
           new Rect(columnX[colIdx], 44 - 28 + rowMove, 32, 32),
@@ -355,8 +354,6 @@ public class FrozenGame extends GameScreen {
           bubbleBlink, bubbleManager, soundManager, this);
         scrolling[column] = tempBubble;
         this.addSprite(tempBubble);
-        this.spriteToBack(tempBubble);
-      }
       colIdx += 2;
     }
   }

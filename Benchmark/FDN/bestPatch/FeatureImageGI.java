@@ -98,14 +98,12 @@ public class FeatureImage extends AppCompatImageView {
     public ValueAnimator alphaAnimator;
 
     private void animateColourChange() {
-        if (alphaAnimator == null) {
-            alphaAnimator = ValueAnimator.ofInt(0, 255);
-        } else {
+        if (alphaAnimator != null) {
             alphaAnimator.cancel();
         }
-
         alphaAnimator = ValueAnimator.ofInt(0, 255).setDuration(150);
         alphaAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
                 currentAlpha = (int) animation.getAnimatedValue();
